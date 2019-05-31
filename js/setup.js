@@ -97,7 +97,10 @@ var renderWizard = function (wizard) {
     return wizardElement;
 };
 
-
+var fragment = document.createDocumentFragment();
+for (var i = 0 ; i < fragment) {
+    
+};
 
 
 document.querySelector('.setup-similar').classList.remove('hidden');
