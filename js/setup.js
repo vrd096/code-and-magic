@@ -1,13 +1,5 @@
-// На основе данных, созданных в предыдущем пункте и шаблона #similar-wizard-template создайте DOM-элементы, 
-// соответствующие случайно сгенерированным волшебникам и заполните их данными из массива:
-// o Имя персонажа name запишите как текст в блок .setup-similar-label;
-// o Цвет мантии coatColor задайте как цвет заливки fill в стилях элемента .wizard-coat;
-// o Цвет глаз eyesColor задайте как цвет заливки fill в стилях элемента .wizard-eyes.
-
-
 var setup = document.querySelector('.setup');
 setup.classList.remove('hidden');
-
 
 var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
@@ -82,7 +74,6 @@ var wizards = [
     }
 ];
 
-
 var renderWizard = function (wizard) {
 
     var wizardElement = similarWizardTemplate.cloneNode(true);
@@ -91,36 +82,16 @@ var renderWizard = function (wizard) {
         wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name();
         wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coatColor();
         wizardElement.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor();
-        // similarWizardTemplate.appendChild(wizardElement);
+       
     };  
     return wizardElement;
 };
 
-
-console.log(renderWizard());
-
-
 var fragment = document.createDocumentFragment();
+
 for (var i = 0 ; i < wizards.length; i++) {
     fragment.appendChild(renderWizard(wizards[i]));
 };
+
 similarListElement.appendChild(fragment);
-console.log(similarListElement);
 document.querySelector('.setup-similar').classList.remove('hidden');
-
-
-// console.log(wizards[0].name());
-// console.log(wizards[0].coatColor());
-// console.log(wizards[0].eyesColor());
-
-// console.log(wizards[1].name());
-// console.log(wizards[1].coatColor());
-// console.log(wizards[1].eyesColor());
-
-// console.log(wizards[2].name());
-// console.log(wizards[2].coatColor());
-// console.log(wizards[2].eyesColor());
-
-// console.log(wizards[3].name());
-// console.log(wizards[3].coatColor());
-// console.log(wizards[3].eyesColor());
