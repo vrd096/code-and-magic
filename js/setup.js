@@ -75,7 +75,6 @@ var wizards = [
 ];
 
 var renderWizard = function (wizard) {
-
     var wizardElement = similarWizardTemplate.cloneNode(true);
 
     for (var i = 0; i < wizards.length; i++) {
