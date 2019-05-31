@@ -87,22 +87,25 @@ var renderWizard = function (wizard) {
 
     var wizardElement = similarWizardTemplate.cloneNode(true);
 
-    for (var i = 0; i < similarWizardTemplate.length; i++) {
+    for (var i = 0; i < wizards.length; i++) {
         wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name();
-        
-        similarWizardTemplate.appendChild(wizardElement);
-        console.log(wizardElement);
-        
+        wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coatColor();
+        wizardElement.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor();
+        // similarWizardTemplate.appendChild(wizardElement);
     };  
     return wizardElement;
 };
 
+
+console.log(renderWizard());
+
+
 var fragment = document.createDocumentFragment();
-for (var i = 0 ; i < fragment) {
-    
+for (var i = 0 ; i < wizards.length; i++) {
+    fragment.appendChild(renderWizard(wizards[i]));
 };
-
-
+similarListElement.appendChild(fragment);
+console.log(similarListElement);
 document.querySelector('.setup-similar').classList.remove('hidden');
 
 
