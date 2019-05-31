@@ -10,67 +10,59 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
 .content
 .querySelector('.setup-similar-item');
 
+var randomat = function (param) {
+   var randomParam =  param[Math.floor(Math.random() * param.length)];
+   return randomParam;
+};
+
 var wizards = [
     {
         name: function () {
-            var randomName = WIZARD_NAMES[Math.floor(Math.random() * WIZARD_NAMES.length)];
-            var randomSurname = WIZARD_SURNAMES[Math.floor(Math.random() * WIZARD_SURNAMES.length)];
-            return randomName + ' ' + randomSurname;
+           return randomat(WIZARD_NAMES) + ' ' + randomat(WIZARD_SURNAMES);
         },
         coatColor: function () {
-            var randomColor = COLORS_COAT[Math.floor(Math.random() * COLORS_COAT.length)];
-
-            return randomColor;
+           return randomat(COLORS_COAT);
+            
         },
         eyesColor: function () {
-            var randomEyes = EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)];
-            return randomEyes;
+            return randomat(EYES_COLOR);
         } 
     },
     {
         name: function () {
-            var randomName = WIZARD_NAMES[Math.floor(Math.random() * WIZARD_NAMES.length)];
-            var randomSurname = WIZARD_SURNAMES[Math.floor(Math.random() * WIZARD_SURNAMES.length)];
-            return randomName + ' ' + randomSurname;
-        },
-        coatColor: function () {
-            var randomColor = COLORS_COAT[Math.floor(Math.random() * COLORS_COAT.length)];
-            return randomColor;
-        },
-        eyesColor: function () {
-            var randomEyes = EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)];
-            return randomEyes;
-        } 
+            return randomat(WIZARD_NAMES) + ' ' + randomat(WIZARD_SURNAMES);
+         },
+         coatColor: function () {
+            return randomat(COLORS_COAT);
+             
+         },
+         eyesColor: function () {
+             return randomat(EYES_COLOR);
+         } 
     },
     {
         name: function () {
-            var randomName = WIZARD_NAMES[Math.floor(Math.random() * WIZARD_NAMES.length)];
-            var randomSurname = WIZARD_SURNAMES[Math.floor(Math.random() * WIZARD_SURNAMES.length)];
-            return randomName + ' ' + randomSurname;
-        },
-        coatColor: function () {
-            var randomColor = COLORS_COAT[Math.floor(Math.random() * COLORS_COAT.length)];
-            return randomColor;
-        },
-        eyesColor: function () {
-            var randomEyes = EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)];
-            return randomEyes;
-        } 
+            return randomat(WIZARD_NAMES) + ' ' + randomat(WIZARD_SURNAMES);
+         },
+         coatColor: function () {
+            return randomat(COLORS_COAT);
+             
+         },
+         eyesColor: function () {
+             return randomat(EYES_COLOR);
+         } 
     },
     {
         name: function () {
-            var randomName = WIZARD_NAMES[Math.floor(Math.random() * WIZARD_NAMES.length)];
-            var randomSurname = WIZARD_SURNAMES[Math.floor(Math.random() * WIZARD_SURNAMES.length)];
-            return randomName + ' ' + randomSurname;
-        },
-        coatColor: function () {
-            var randomColor = COLORS_COAT[Math.floor(Math.random() * COLORS_COAT.length)];
-            return randomColor;
-        },
-        eyesColor: function () {
-            var randomEyes = EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)];
-            return randomEyes;
-        } 
+            return randomat(WIZARD_NAMES) + ' ' + randomat(WIZARD_SURNAMES);
+         },
+         coatColor: function () {
+            return randomat(COLORS_COAT);
+             
+         },
+         eyesColor: function () {
+             return randomat(EYES_COLOR);
+         } 
     }
 ];
 
