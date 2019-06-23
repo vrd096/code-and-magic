@@ -10,19 +10,18 @@
   var editWizardCoat = editWizard.querySelector(".wizard-coat");
   var editWizardEyes = editWizard.querySelector(".wizard-eyes");
   var editFireball = document.querySelector(".setup-fireball-wrap");
-  var editFireballInput = editFireball.querySelector("input");
 
-  var renderWizard = function(wizard) {
+  var renderWizard = function() {
     var wizardElement = similarWizardTemplate.cloneNode(true);
 
-    for (var i = 0; i < wizards.length; i++) {
-      wizardElement.querySelector(".setup-similar-label").textContent = wizards[
-        i
-      ].name();
-      wizardElement.querySelector(".wizard-coat").style.fill = wizards[
+    for (var i = 0; i < window.wizards.length; i++) {
+      wizardElement.querySelector(
+        ".setup-similar-label"
+      ).textContent = window.wizards[i].name();
+      wizardElement.querySelector(".wizard-coat").style.fill = window.wizards[
         i
       ].coatColor();
-      wizardElement.querySelector(".wizard-eyes").style.fill = wizards[
+      wizardElement.querySelector(".wizard-eyes").style.fill = window.wizards[
         i
       ].eyesColor();
     }
@@ -31,23 +30,24 @@
 
   var fragment = document.createDocumentFragment();
 
-  for (var i = 0; i < wizards.length; i++) {
-    fragment.appendChild(renderWizard(wizards[i]));
+  for (var i = 0; i < window.wizards.length; i++) {
+    fragment.appendChild(renderWizard(window.wizards[i]));
   }
 
   similarListElement.appendChild(fragment);
 
   editWizardCoat.addEventListener("click", function() {
-    editWizardCoat.style.fill = randomat(COLORS_COAT);
+    editWizardCoat.style.fill = randomString(window.COLORS_COAT);
   });
 
   editWizardEyes.addEventListener("click", function() {
-    editWizardEyes.style.fill = randomat(EYES_COLOR);
+    editWizardEyes.style.fill = randomString(window.EYES_COLOR);
   });
 
   editFireball.addEventListener("click", function() {
-    editFireball.style.background = randomat(FIREBALL);
+    editFireball.style.background = randomString(FIREBALL);
     console.log(editFireball.style.background);
     editFireballInput.value = editFireball.style.background;
   });
+  document.querySelector(".setup-similar").classList.remove("hidden");
 })();
