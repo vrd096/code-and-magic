@@ -1,5 +1,7 @@
 "use strict";
-
+(function(){
+  
+}());
 var WIZARD_NAMES = [
   "Иван",
   "Хуан Себастьян",
