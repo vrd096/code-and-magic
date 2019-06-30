@@ -1,6 +1,7 @@
 "use strict";
 
 (function() {
+  var setup = document.querySelector(".setup");
   var userNameInput = setup.querySelector(".setup-user-name");
 
   userNameInput.addEventListener("invalid", function() {
@@ -15,5 +16,13 @@
     } else {
       userNameInput.setCustomValidity("");
     }
+  });
+
+  var form = document.querySelector(".setup-wizard-form");
+  form.addEventListener("submit", function(evt){
+    window.upload(new FormData(form), function (response) {
+      document.querySelector(".setup-similar").classList.remove("hidden");
+    });
+    evt.preventDefault();
   });
 })();
