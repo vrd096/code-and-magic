@@ -1,43 +1,70 @@
 "use strict";
 
 /*
-создать функцию 
+написать разные события ответа от сервера
 */
 
 (function() {
-  window.upload = function(data, onSuccess) {
-    var URL = "https://js.dump.academy/code-and-magick";
+  window.save = function(data, onLoad, onError) {
+    var URL = "https://js.dump.academy/code-and-magick/";
     var xhr = new XMLHttpRequest();
     xhr.responseType = "json";
 
     xhr.addEventListener("load", function() {
-      onSuccess(xhr.response);
+      
+
+      switch (xhr.status) {
+        case 200:
+          onLoad(xhr.response);
+          break;
+
+        case 400:
+          onError("Неверный запрос");
+          break;
+
+        case 401:
+          onError("Пользователь не авторизован");
+          break;
+
+        case 404:
+          onError("Ничего не найдено");
+          break;
+
+        default:
+          onError("Статус ответа: " + xhr.status + " " + xhr.statusText);
+          break;
+      }
+    });
+    xhr.addEventListener("timeout", function() {
+      onError("Запрос не успел выполниться за " + xhr.timeout + "мс");
     });
 
+    xhr.timeout = 3000;
+
     xhr.open("POST", URL);
-    console.log(xhr);
     xhr.send(data);
+    this.console.log(xhr);
   };
 
-  window.load = function(onSuccess, onError) {
+  window.load = function(onLoad, onError) {
     var URL = "https://js.dump.academy/code-and-magick/data";
     var xhr = new XMLHttpRequest();
     xhr.responseType = "json";
 
     xhr.addEventListener("load", function() {
       if (xhr.status === 200) {
-        onSuccess(xhr.response);
+        onLoad(xhr.response);
       } else {
         onError("Статус ответа: " + xhr.status + " " + xhr.statusText);
       }
     });
 
     xhr.addEventListener("error", function() {
-        onError("Произошла ошибка соеденения");
+      onError("Произошла ошибка соеденения");
     });
 
     xhr.addEventListener("timeout", function() {
-        onError("Запрос не успел выполниться за " + xhr.timeout + "мс");
+      onError("Запрос не успел выполниться за " + xhr.timeout + "мс");
     });
 
     xhr.timeout = 10000;
