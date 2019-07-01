@@ -38,7 +38,7 @@
       fragment.appendChild(renderWizard(wizards[i]));
     }
     similarListElement.appendChild(fragment);
-    
+
     document.querySelector(".setup-similar").classList.remove("hidden");
   };
 
