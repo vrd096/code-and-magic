@@ -13,7 +13,7 @@
       if (evt.target === userNameInput) {
         evt.stopPropagation();
       } else if (evt.target !== userNameInput) {
-        popupClose();
+        window.popupClose();
       }
     }
   };
@@ -23,7 +23,7 @@
     document.addEventListener("keydown", onPopupEscPress);
   };
 
-  var popupClose = function() {
+  window.popupClose = function() {
     setup.classList.add("hidden");
     document.removeEventListener("keydown", onPopupEscPress);
   };
@@ -39,11 +39,11 @@
   });
 
   setupClose.addEventListener("click", function() {
-    popupClose();
+    window.popupClose();
   });
   setupClose.addEventListener("keydown", function(evt) {
     if (evt.keyCode === ENTER_KEYCODE) {
-      popupClose();
+      window.popupClose();
     }
   });
 })();
