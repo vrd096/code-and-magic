@@ -16,10 +16,6 @@
           onError("Неверный запрос");
           break;
 
-        case 401:
-          onError("Пользователь не авторизован");
-          break;
-
         case 404:
           onError("Ничего не найдено");
           break;
@@ -48,11 +44,9 @@
     xhr.responseType = "json";
 
     xhr.addEventListener("load", function() {
-      if (xhr.status === 200) {
-        onLoad(xhr.response);
-      } else {
-        onError("Статус ответа: " + xhr.status + " " + xhr.statusText);
-      }
+      xhr.status === 200
+        ? onLoad(xhr.response)
+        : onError("Статус ответа: " + xhr.status + " " + xhr.statusText);
     });
 
     xhr.addEventListener("error", function() {
