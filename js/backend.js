@@ -1,9 +1,5 @@
 "use strict";
 
-/*
-написать разные события ответа от сервера
-*/
-
 (function() {
   window.save = function(data, onLoad, onError) {
     var URL = "https://js.dump.academy/code-and-magick/";
@@ -44,8 +40,10 @@
     this.console.log(xhr);
   };
 
-  window.load = function(onLoad, onError) {
+  window.load = function(url, onLoad, onError) {
     var URL = "https://js.dump.academy/code-and-magick/data";
+
+    url = url || URL;
     var xhr = new XMLHttpRequest();
     xhr.responseType = "json";
 
