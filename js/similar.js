@@ -39,14 +39,26 @@
     window.render(wizards.sort(wizardsComparator));
   };
 
+  function setClickTimer() {
+    var lastTimeout;
+    var DEBOUNCE_INTERVAL = 500;
+
+    if (lastTimeout) {
+      window.clearTimeout(lastTimeout);
+    }
+    lastTimeout = window.setTimeout(function() {
+      updateFilter();
+    }, DEBOUNCE_INTERVAL);
+  }
+
   window.wizard.onCoatChange = function(color) {
     coatColor = color;
-    window.debounce(updateFilter);
+    setClickTimer();
   };
 
   window.wizard.onEyesChange = function(color) {
     eyesColor = color;
-    window.debounce(updateFilter);
+    setClickTimer();
   };
 
   var successHandler = function(data) {
