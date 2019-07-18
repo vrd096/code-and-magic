@@ -1,9 +1,5 @@
 "use strict";
 
-/*
-написать разные события ответа от сервера
-*/
-
 (function() {
   window.save = function(data, onLoad, onError) {
     var URL = "https://js.dump.academy/code-and-magick/";
@@ -18,10 +14,6 @@
 
         case 400:
           onError("Неверный запрос");
-          break;
-
-        case 401:
-          onError("Пользователь не авторизован");
           break;
 
         case 404:
@@ -44,17 +36,17 @@
     this.console.log(xhr);
   };
 
-  window.load = function(onLoad, onError) {
+  window.load = function(url, onLoad, onError) {
     var URL = "https://js.dump.academy/code-and-magick/data";
+
+    url = url || URL;
     var xhr = new XMLHttpRequest();
     xhr.responseType = "json";
 
     xhr.addEventListener("load", function() {
-      if (xhr.status === 200) {
-        onLoad(xhr.response);
-      } else {
-        onError("Статус ответа: " + xhr.status + " " + xhr.statusText);
-      }
+      xhr.status === 200
+        ? onLoad(xhr.response)
+        : onError("Статус ответа: " + xhr.status + " " + xhr.statusText);
     });
 
     xhr.addEventListener("error", function() {

@@ -28,7 +28,7 @@
     "rgb(215, 210, 55)",
     "rgb((0, 0, 0)"
   ];
-  window.EYES_COLOR = ["black", "red", "blue", "yellow", "green"];
+  window.EYES_COLOR = ["red", "blue", "yellow", "green", "orange", "lightblue", "purple"];
 
   window.wizards = [
     {
