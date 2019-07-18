@@ -38,14 +38,24 @@
   var updateFilter = function() {
     window.render(wizards.sort(wizardsComparator));
   };
-
+  var lastTimeout;
   window.wizard.onCoatChange = function(color) {
     coatColor = color;
-    updateFilter();
+    if (lastTimeout) {
+      window.clearTimeout(lastTimeout);
+    }
+    lastTimeout = window.setTimeout(function() {
+      updateFilter();
+    }, 500);
   };
   window.wizard.onEyesChange = function(color) {
     eyesColor = color;
-    updateFilter();
+    if (lastTimeout) {
+      window.clearTimeout(lastTimeout);
+    }
+    lastTimeout = window.setTimeout(function() {
+      updateFilter();
+    }, 500);
   };
 
   var successHandler = function(data) {

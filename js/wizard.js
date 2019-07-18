@@ -6,14 +6,14 @@
     return array[randomElementIndex];
   };
 
-  var wizard = {
-    onEyesChange: function(color) {
-      return color;
-    },
-    onCoatChange: function(color) {
-      return color;
-    }
-  };
+  // var wizard = {
+  //   onEyesChange: function(color) {
+  //     return color;
+  //   },
+  //   onCoatChange: function(color) {
+  //     return color;
+  //   }
+  // };
 
   var wizardElement = document.querySelector(".setup-wizard");
   var wizardCoatElement = wizardElement.querySelector(".wizard-coat");
@@ -31,7 +31,7 @@
   wizardCoatElement.addEventListener("click", function() {
     var newColor = getRandomElement(wizardCoatColors);
     wizardCoatElement.style.fill = newColor;
-    wizard.onCoatChange(newColor);
+    window.wizard.onCoatChange(newColor);
   });
 
   var wizardEyesElement = wizardElement.querySelector(".wizard-eyes");
@@ -48,7 +48,7 @@
   wizardEyesElement.addEventListener("click", function() {
     var newColor = getRandomElement(wizardEyesColors);
     wizardEyesElement.style.fill = newColor;
-    wizard.onEyesChange(newColor);
+    window.wizard.onEyesChange(newColor);
   });
 
   window.wizard = wizard;
